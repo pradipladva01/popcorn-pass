@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import slugify from "slugify";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer/Footer";
 
 const SearchResults = ({ setQuery }) => {
@@ -80,9 +80,9 @@ const SearchResults = ({ setQuery }) => {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title> Search Results | {process.env.REACT_APP_APP_NAME}</title>
-      </Helmet>
+      </Helmet> */}
       <Navbar
         setSearchedMovies={setSearchedMovies}
         setHeader={handleSearchChange}
