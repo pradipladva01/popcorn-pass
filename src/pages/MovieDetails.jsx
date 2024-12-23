@@ -6,13 +6,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { AsyncImage } from "loadable-image";
 import slugify from "slugify";
-import { Helmet } from "react-helmet-async";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import NoData from "../resources/images/no_data.svg";
 import Footer from "../components/Footer/Footer";
+import UsePageTitle from "../components/UsePageTitle";
 
 const MovieDetails = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -23,6 +23,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
   const [movieImages, setMovieImages] = useState([]);
   const [video, setVideo] = useState([]);
+  UsePageTitle("Movie Details - PopcornPass");
 
   const navigate = useNavigate();
 
@@ -137,9 +138,6 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Helmet>
-        <title> Movie Details | {process.env.REACT_APP_APP_NAME}</title>
-      </Helmet>
       <Navbar
         setSearchedMovies={setSearchedMovies}
         setHeader={setHeader}

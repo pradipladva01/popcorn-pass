@@ -5,8 +5,8 @@ import Navbar from "../components/Navbar/Navbar";
 import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import slugify from "slugify";
-import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer/Footer";
+import UsePageTitle from '../components/UsePageTitle';
 
 const SearchResults = ({ setQuery }) => {
   const { query } = useParams();
@@ -15,6 +15,7 @@ const SearchResults = ({ setQuery }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  UsePageTitle("Search Results - PopcornPass");
 
   useEffect(() => {
     if (!query) {
@@ -80,9 +81,6 @@ const SearchResults = ({ setQuery }) => {
 
   return (
     <>
-      <Helmet>
-        <title> Search Results | {process.env.REACT_APP_APP_NAME}</title>
-      </Helmet>
       <Navbar
         setSearchedMovies={setSearchedMovies}
         setHeader={handleSearchChange}
