@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { AsyncImage } from "loadable-image";
 import slugify from "slugify";
+import { Helmet } from "react-helmet-async";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
@@ -136,9 +137,9 @@ const MovieDetails = () => {
 
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         <title> Movie Details | {process.env.REACT_APP_APP_NAME}</title>
-      </Helmet> */}
+      </Helmet>
       <Navbar
         setSearchedMovies={setSearchedMovies}
         setHeader={setHeader}

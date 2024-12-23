@@ -8,6 +8,7 @@ import TrendingMovie from "../components/TrendingMovie";
 import Genre from "../components/Genre";
 import slugify from "slugify";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Footer from "../components/Footer/Footer";
 
 const Home = () => {
@@ -24,7 +25,9 @@ const Home = () => {
 
   return (
     <>
-      {/* <title> {process.env.REACT_APP_APP_NAME}</title> */}
+      <Helmet>
+        <title> {process.env.REACT_APP_APP_NAME}</title>
+      </Helmet>
       <Navbar
         setSearchedMovies={setSearchedMovies}
         setHeader={setHeader}
@@ -65,7 +68,7 @@ const Home = () => {
           <TrendingMovie />
         </>
       )}
-      <Footer />
+      <Footer/>
     </>
   );
 };
