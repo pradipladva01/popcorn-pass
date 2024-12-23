@@ -1,0 +1,28 @@
+.main_navbar {
+  padding: 20px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+.main_navbar .navbar_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.main_navbar .navbar_bottom .navbar-brand {
+  margin: 0;
+}
+.main_navbar .navbar_bottom .navbar-brand h1 {
+  color: var(--white-color);
+  font-size: 30px;
+  margin: 0;
+}
+.main_navbar .navbar_bottom .navbar-brand h1 span {
+  color: var(--primary-color);
+}
+
+@media (max-width: 480px) {
+  .main_navbar .navbar_bottom {
+    flex-direction: column;
+    gap: 20px;
+  }
+}/*# sourceMappingURL=Navbar.css.map */

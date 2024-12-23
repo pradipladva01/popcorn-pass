@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden !important;
+}
+
+:root {
+  --black-color: #000000;
+  --gray-color: #9c9c9c;
+  --white-color: #FFFFFF;
+  --primary-color: #1db954;
+}
+
+body {
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  background: var(--black-color) !important;
+  overflow-x: hidden !important;
+  font-family: "Outfit", serif !important;
+}
+
+a {
+  text-decoration: none !important;
+}
