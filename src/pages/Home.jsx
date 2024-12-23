@@ -16,7 +16,7 @@ const Home = () => {
   const [header, setHeader] = useState("");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
-  UsePageTitle("PopcornPass");
+  UsePageTitle("PopcornPass - Movie Central");
 
   const handleMovieClick = (movie) => {
     setQuery("");

@@ -23,7 +23,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
   const [movieImages, setMovieImages] = useState([]);
   const [video, setVideo] = useState([]);
-  UsePageTitle("Movie Details - PopcornPass");
+  UsePageTitle("Movie Details | PopcornPass - Movie Central");
 
   const navigate = useNavigate();
 

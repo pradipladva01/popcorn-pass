@@ -15,7 +15,7 @@ const SearchResults = ({ setQuery }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  UsePageTitle("Search Results - PopcornPass");
+  UsePageTitle("Search Results | PopcornPass - Movie Central");
 
   useEffect(() => {
     if (!query) {
