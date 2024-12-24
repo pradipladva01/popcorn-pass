@@ -136,6 +136,7 @@ const MovieDetails = () => {
     { quality: "1080p" },
     { quality: "4K" },
   ];
+  console.log(movieImages);
 
   return (
     <>
@@ -458,8 +459,8 @@ const MovieDetails = () => {
                                       <div className="movie_cast_card">
                                         <AsyncImage
                                           src={
-                                            movie.poster_path
-                                              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                            movie.profile_path
+                                              ? `https://image.tmdb.org/t/p/w500${movie.profile_path}`
                                               : PlaceHolderImg
                                           }
                                           alt={`${
@@ -492,6 +493,7 @@ const MovieDetails = () => {
                                 </p>
                               </div>
                             </div>
+                            {console.log(movieImages)}
                             <div className="movie_screen_shorts">
                               <h5>Screenshots</h5>
                               <div className="screen_shots_main">
@@ -502,8 +504,8 @@ const MovieDetails = () => {
                                     .map((image, index) => (
                                       <AsyncImage
                                         src={
-                                          movie.poster_path
-                                            ? `https://image.tmdb.org/t/p/w1280${movie.poster_path}`
+                                          image.file_path
+                                            ? `https://image.tmdb.org/t/p/w1280${image.file_path}`
                                             : PlaceHolderImg
                                         }
                                         alt={`Movie Backdrop ${index + 1}`}

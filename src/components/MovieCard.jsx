@@ -22,14 +22,13 @@ const MovieCard = ({ image, title, rating, year }) => {
               width: "100%",
               height: "100%",
             }}
-          >
-          </div>
+          ></div>
         )}
         <AsyncImage
           src={hasError || !image ? PlaceHolderImg : image}
           alt={`${title} poster`}
-          onLoad={() => setIsLoaded(true)} // Set isLoaded to true when image loads
-          onError={handleError} // Set error state if image fails to load
+          onLoad={() => setIsLoaded(true)}
+          onError={handleError}
           loader={
             <div
               style={{
