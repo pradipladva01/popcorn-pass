@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <> 
+    <>
       <footer class="footer_section">
         <div class="container">
           <div class="row">
@@ -11,11 +11,11 @@ const Footer = () => {
               <h6>PopcornPass Copyright © {new Date().getFullYear()}</h6>
               <ul>
                 <li>
-                  <Link>Terms & conditions</Link>
+                  <Link to="/terms-condition">Terms & conditions</Link>
                 </li>
                 |
                 <li>
-                  <Link>Privacy Policy</Link>
+                  <Link to="/privacy-policy">Privacy Policy</Link>
                 </li>
               </ul>
             </div>

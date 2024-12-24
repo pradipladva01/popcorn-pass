@@ -3,6 +3,8 @@ import { Navigate, useRoutes } from "react-router-dom";
 import { retry } from "./utils/CommonFunctions";
 import MovieDetails from "./pages/MovieDetails";
 import FourOhFour from "./pages/FourOhFour";
+import TermsAndCondition from "./pages/TermsAndCondition";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 const Home = lazy(() => retry(() => import("./pages/Home")));
 const SearchResults = lazy(() => retry(() => import("./pages/SearchResults")));
 
@@ -19,6 +21,14 @@ const Routes = () => {
     {
       path: "/movie/:slug/:id",
       element: <MovieDetails />,
+    },
+    {
+      path: "/terms-condition",
+      element: <TermsAndCondition />,
+    },
+    {
+      path: "/privacy-policy",
+      element: <PrivacyPolicy />,
     },
     {
       path: "404",
