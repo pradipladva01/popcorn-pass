@@ -713,7 +713,7 @@
                 }
 
                 iframe {
-                    width: 100%;
+                    // width: 100%;
                     margin-top: 10px;
                 }
             }
@@ -1146,6 +1146,13 @@
 
     .movie_details .movie_details_main {
         padding: 30px;
+    }
+}
+
+@media (max-width:767px) {
+    .movie_details .movie_details_main .movie_inner_card .movie_Trailer iframe {
+        width: 100%;
+        height: auto;
     }
 }
 

@@ -42,6 +42,7 @@ const MovieDetails = () => {
           }
         );
         setMovie(response.data);
+        setVideo(response.data.videos.results);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching movie details:", error);
@@ -525,7 +526,7 @@ const MovieDetails = () => {
                                 {movieImages[id] &&
                                 movieImages[id].length > 0 ? (
                                   movieImages[id]
-                                    .slice(0, 15)
+                                    .slice(0, 10)
                                     .map((image, index) => (
                                       <AsyncImage
                                         src={
@@ -573,6 +574,30 @@ const MovieDetails = () => {
                             </div>
                             <div class="movie_Trailer">
                               {renderYoutubeVideos()}
+                              {/* {video.length > 0 ? (
+                                <>
+                                  {
+                                    video.map((video) => (
+                                      <div
+                                        key={video.id}
+                                        style={{ margin: "10px 0" }}
+                                      >
+                                        <h5>{video.name}</h5>
+                                        <iframe
+                                          width="560"
+                                          height="315"
+                                          src={`https://www.youtube.com/embed/${video.key}`}
+                                          title={video.name}
+                                          frameBorder="0"
+                                          allowFullScreen
+                                        ></iframe>
+                                      </div>
+                                    ))
+                                  }
+                                </>
+                              ) : (
+                                <p>No videos available</p>
+                              )} */}
                             </div>
                           </div>
                         </div>
