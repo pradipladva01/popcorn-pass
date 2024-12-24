@@ -6,7 +6,8 @@ import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import slugify from "slugify";
 import Footer from "../components/Footer/Footer";
-import UsePageTitle from '../components/UsePageTitle';
+import UsePageTitle from "../components/UsePageTitle";
+import PlaceHolderImg from "../resources/images/img_placeholder.png";
 
 const SearchResults = ({ setQuery }) => {
   const { query } = useParams();
@@ -101,6 +102,7 @@ const SearchResults = ({ setQuery }) => {
                   onClick={() => handleMovieClick(movie)}
                 >
                   <MovieCard
+                    key={movie.id}
                     image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     title={movie.title}
                     rating={movie.vote_average.toFixed(1)}

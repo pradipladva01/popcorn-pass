@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { AsyncImage } from "loadable-image";
 import axios from "axios";
+import PlaceHolderImg from "../resources/images/backdrop_placeholder.png";
 
 const HomeSlider = () => {
   const [movies, setMovies] = useState([]);
@@ -57,7 +58,7 @@ const HomeSlider = () => {
                   src={
                     movie.backdrop_path
                       ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`
-                      : `https://via.placeholder.com/1280x720?text=No+Image+Available`
+                      : PlaceHolderImg
                   }
                   alt={movie.title}
                   loader={

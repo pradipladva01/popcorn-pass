@@ -1,6 +1,8 @@
 import React from "react";
+import UsePageTitle from "../components/UsePageTitle";
 
 const PrivacyPolicy = () => {
+  UsePageTitle("Privacy Policy | PopcornPass - Movie Central");
   return (
     <>
       <section class="terms_section">

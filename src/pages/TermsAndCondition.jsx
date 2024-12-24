@@ -1,6 +1,8 @@
 import React from "react";
+import UsePageTitle from "../components/UsePageTitle";
 
 const TermsAndCondition = () => {
+  UsePageTitle("Terms and Conditions | PopcornPass - Movie Central");
   return (
     <>
       <section class="terms_section">

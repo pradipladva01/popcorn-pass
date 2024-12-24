@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 import NoData from "../resources/images/no_data.svg";
 import Footer from "../components/Footer/Footer";
 import UsePageTitle from "../components/UsePageTitle";
+import PlaceHolderImg from "../resources/images/img_placeholder.png";
 
 const MovieDetails = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -185,7 +186,11 @@ const MovieDetails = () => {
                             <div className="movie_main_card">
                               <div className="movie_main_card_left">
                                 <AsyncImage
-                                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                  src={
+                                    movie.poster_path
+                                      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                      : PlaceHolderImg
+                                  }
                                   alt={movie.title}
                                   loader={
                                     <div
@@ -453,9 +458,9 @@ const MovieDetails = () => {
                                       <div className="movie_cast_card">
                                         <AsyncImage
                                           src={
-                                            movie.profile_path
-                                              ? `https://image.tmdb.org/t/p/w500${movie.profile_path}`
-                                              : "/path-to-placeholder-image.jpg"
+                                            movie.poster_path
+                                              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                              : PlaceHolderImg
                                           }
                                           alt={`${
                                             movie.name || "Unknown"
@@ -496,7 +501,11 @@ const MovieDetails = () => {
                                     .slice(0, 15)
                                     .map((image, index) => (
                                       <AsyncImage
-                                        src={`https://image.tmdb.org/t/p/w1280${image.file_path}`}
+                                        src={
+                                          movie.poster_path
+                                            ? `https://image.tmdb.org/t/p/w1280${movie.poster_path}`
+                                            : PlaceHolderImg
+                                        }
                                         alt={`Movie Backdrop ${index + 1}`}
                                         key={index}
                                         loader={
