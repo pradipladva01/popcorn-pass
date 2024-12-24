@@ -137,6 +137,16 @@ const MovieDetails = () => {
     { quality: "4K" },
   ];
 
+  const handleGoogleDriveClick = (download) => {
+    const slug = slugify(movie.title, { lower: true });
+    navigate(`/movie/${slug}/${id}/download-one`, {
+      state: {
+        movie,
+        downloadQuality: download.quality,
+      },
+    });
+  };
+
   return (
     <>
       <Navbar
@@ -509,7 +519,6 @@ const MovieDetails = () => {
                                 </p>
                               </div>
                             </div>
-                            {console.log(movieImages)}
                             <div className="movie_screen_shorts">
                               <h5>Screenshots</h5>
                               <div className="screen_shots_main">
@@ -546,8 +555,13 @@ const MovieDetails = () => {
                                 <div key={index} className="download_link">
                                   <h5>{`${title} (${year}) ${original_language} ${download.quality}`}</h5>
                                   <div className="download_main_btn">
-                                    <button className="google_drive_download_btn">
-                                      <Link to={download.link} />
+                                    <button
+                                      className="google_drive_download_btn"
+                                      onClick={() =>
+                                        handleGoogleDriveClick(download)
+                                      }
+                                    >
+                                      <Link />
                                       Google Drive
                                     </button>
                                     <button className="download_btn">

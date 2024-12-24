@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
 import Navbar from "../components/Navbar/Navbar";
 import MovieCard from "../components/MovieCard";
@@ -11,13 +11,37 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import UsePageTitle from "../components/UsePageTitle";
 import NoData from "../resources/images/no_data.svg";
+import { ArrowUp } from "lucide-react";
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [header, setHeader] = useState("");
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
   UsePageTitle("PopcornPass - Movie Central");
+
+  // Scroll to top function
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const handleMovieClick = (movie) => {
     setQuery("");
@@ -82,6 +106,11 @@ const Home = () => {
           <NowPlayingMovie />
           <TrendingMovie />
         </>
+      )}
+      {isVisible && (
+        <button onClick={scrollToTop} className="scroll-to-top">
+          <ArrowUp />
+        </button>
       )}
       <Footer />
     </>

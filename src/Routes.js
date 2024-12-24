@@ -5,6 +5,8 @@ import MovieDetails from "./pages/MovieDetails";
 import FourOhFour from "./pages/FourOhFour";
 import TermsAndCondition from "./pages/TermsAndCondition";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import DownloadOne from "./pages/DownloadOne";
+import DownloadTwo from "./pages/DownloadTwo";
 const Home = lazy(() => retry(() => import("./pages/Home")));
 const SearchResults = lazy(() => retry(() => import("./pages/SearchResults")));
 
@@ -29,6 +31,14 @@ const Routes = () => {
     {
       path: "/privacy-policy",
       element: <PrivacyPolicy />,
+    },
+    {
+      path: "/movie/:slug/:id/download-one",
+      element: <DownloadOne />,
+    },
+    {
+      path: "/movie/:slug/:id/download-two",
+      element: <DownloadTwo />,
     },
     {
       path: "404",
