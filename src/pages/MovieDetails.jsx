@@ -136,7 +136,6 @@ const MovieDetails = () => {
     { quality: "1080p" },
     { quality: "4K" },
   ];
-  console.log(movieImages);
 
   return (
     <>
@@ -146,8 +145,25 @@ const MovieDetails = () => {
         query={query}
         setQuery={setQuery}
       />
-
-      {searchedMovies.length > 0 ? (
+      {query?.trim() && searchedMovies.length === 0 ? (
+        <div class="movie_details">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="no_data_found">
+                  <img src={NoData} alt="No Data Found" />
+                  <h5>No data found</h5>
+                  <p>
+                    Sorry, we couldn’t find any matches for your search. Try
+                    refining your query or explore our popular movies and
+                    genres!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : query?.trim() && searchedMovies.length > 0 ? (
         <section className="movie_list">
           <div className="container">
             <div className="row">
@@ -551,8 +567,9 @@ const MovieDetails = () => {
                           <img src={NoData} alt="No Data Found" />
                           <h5>No data found</h5>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quod, ipsum.
+                            Sorry, we couldn’t find any matches for your search.
+                            Try refining your query or explore our popular
+                            movies and genres!
                           </p>
                         </div>
                       )}
@@ -568,9 +585,9 @@ const MovieDetails = () => {
               </div>
             </div>
           </section>
-          <Footer />
         </>
       )}
+      <Footer />
     </>
   );
 };

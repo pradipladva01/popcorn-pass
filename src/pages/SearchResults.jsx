@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
 import Navbar from "../components/Navbar/Navbar";
-import { ArrowLeft } from "lucide-react";
 import axios from "axios";
 import slugify from "slugify";
 import Footer from "../components/Footer/Footer";
 import UsePageTitle from "../components/UsePageTitle";
-import PlaceHolderImg from "../resources/images/img_placeholder.png";
 
 const SearchResults = ({ setQuery }) => {
   const { query } = useParams();
@@ -88,10 +86,9 @@ const SearchResults = ({ setQuery }) => {
       />
       {error && <div className="error-message">{error}</div>}
       {header && <h2>Results for: {header}</h2>}
-      <button onClick={() => navigate(-1)}>
-        <ArrowLeft />
-      </button>
-      {searchedMovies.length > 0 && (
+
+      
+      {searchedMovies.length > 0 ? (
         <section className="movie_list">
           <div className="container">
             <div className="row">
@@ -113,6 +110,8 @@ const SearchResults = ({ setQuery }) => {
             </div>
           </div>
         </section>
+      ) : (
+        <p>No Data</p>
       )}
       <Footer />
     </>

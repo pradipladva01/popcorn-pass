@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react"; // Import the X icon
 import axios from "axios";
 import "./SearchBar.css";
 
@@ -56,6 +56,12 @@ const SearchBar = ({ setSearchedMovies, setHeader, query, setQuery }) => {
     debouncedFetchSearch(newQuery);
   };
 
+  const clearSearch = () => {
+    setQuery("");
+    setSearchedMovies([]);
+    setHeader("");
+  };
+
   useEffect(() => {
     if (!query?.trim()) {
       setHeader("");
@@ -64,20 +70,24 @@ const SearchBar = ({ setSearchedMovies, setHeader, query, setQuery }) => {
   }, [query, setSearchedMovies, setHeader]);
 
   return (
-    <>
-      <div className="search_bar_container">
-        <input
-          type="text"
-          placeholder="Search movies"
-          className="search_bar_input"
-          value={query || ""}
-          onChange={handleInputChange}
-        />
+    <div className="search_bar_container">
+      <input
+        type="text"
+        placeholder="Search movies"
+        className="search_bar_input"
+        value={query || ""}
+        onChange={handleInputChange}
+      />
+      {query?.trim() ? (
+        <button className="search_bar_button" onClick={clearSearch}>
+          <X color="#fff" />
+        </button>
+      ) : (
         <button className="search_bar_button">
           <Search color="#fff" />
         </button>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 
