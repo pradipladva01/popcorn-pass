@@ -442,7 +442,7 @@ const MovieDetails = () => {
                               </div>
                               <Swiper
                                 className="movie_cast-swiper"
-                                autoHeight={true}
+                                autoHeight={false}
                                 spaceBetween={20}
                                 slidesPerView={4}
                                 modules={[Navigation]}
