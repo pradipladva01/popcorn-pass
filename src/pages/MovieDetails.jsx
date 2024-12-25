@@ -16,9 +16,9 @@ import UsePageTitle from "../components/UsePageTitle";
 import PlaceHolderImg from "../resources/images/img_placeholder.png";
 
 const MovieDetails = () => {
-  const [searchedMovies, setSearchedMovies] = useState([]);
-  const [header, setHeader] = useState("");
-  const [query, setQuery] = useState("");
+    const [searchedMovies, setSearchedMovies] = useState([]);
+    const [header, setHeader] = useState("");
+    const [query, setQuery] = useState("");
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -130,6 +130,9 @@ const MovieDetails = () => {
 
   const { title, release_date, original_language } = movie || {};
   const year = release_date ? new Date(release_date).getFullYear() : "Unknown";
+  const formattedLanguage = original_language
+    ? original_language.toUpperCase()
+    : "N/A";
 
   const downloadLinks = [
     { quality: "480p" },
@@ -157,11 +160,11 @@ const MovieDetails = () => {
         setQuery={setQuery}
       />
       {query?.trim() && searchedMovies.length === 0 ? (
-        <div class="movie_details">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="no_data_found">
+        <div className="movie_details">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="no_data_found">
                   <img src={NoData} alt="No Data Found" />
                   <h5>No data found</h5>
                   <p>
@@ -439,8 +442,8 @@ const MovieDetails = () => {
                                 </p>
                               </div>
                             </div>
-                            <div class="movie_cast">
-                              <div class="top_cast">
+                            <div className="movie_cast">
+                              <div className="top_cast">
                                 <h5>Movie Cast</h5>
                                 <div className="navigation-arrow">
                                   <button className="cast_prev-button">
@@ -554,7 +557,7 @@ const MovieDetails = () => {
                             <div className="movie_download_link">
                               {downloadLinks.map((download, index) => (
                                 <div key={index} className="download_link">
-                                  <h5>{`${title} (${year}) ${original_language} ${download.quality}`}</h5>
+                                  <h5>{`${title} (${year}) ${formattedLanguage} ${download.quality}`}</h5>
                                   <div className="download_main_btn">
                                     <button
                                       className="google_drive_download_btn"
@@ -572,7 +575,7 @@ const MovieDetails = () => {
                                 </div>
                               ))}
                             </div>
-                            <div class="movie_Trailer">
+                            <div className="movie_Trailer">
                               {renderYoutubeVideos()}
                               {/* {video.length > 0 ? (
                                 <>
@@ -602,7 +605,7 @@ const MovieDetails = () => {
                           </div>
                         </div>
                       ) : (
-                        <div class="no_data_found">
+                        <div className="no_data_found">
                           <img src={NoData} alt="No Data Found" />
                           <h5>No data found</h5>
                           <p>
@@ -615,8 +618,8 @@ const MovieDetails = () => {
                     </>
                   ) : (
                     <>
-                      <div class="loading_movie">
-                        <div class="spinner-border" role="status"></div>
+                      <div className="loading_movie">
+                        <div className="spinner-border" role="status"></div>
                       </div>
                     </>
                   )}

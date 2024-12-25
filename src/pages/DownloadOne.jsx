@@ -4,6 +4,7 @@ import axios from "axios";
 import { AsyncImage } from "loadable-image";
 import PlaceHolderImg from "../resources/images/backdrop_placeholder.png";
 import slugify from "slugify";
+import UsePageTitle from "../components/UsePageTitle";
 
 const DownloadOne = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const DownloadOne = () => {
   const [showNotRobotButton, setShowNotRobotButton] = useState(false);
   const [clickCount, setClickCount] = useState(0);
   const notRobotRef = useRef(null);
+  UsePageTitle("Download | PopcornPass - Movie Central");
 
   useEffect(() => {
     const storedClickCount = parseInt(localStorage.getItem("clickCount"), 10);

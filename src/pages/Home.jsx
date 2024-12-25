@@ -58,11 +58,11 @@ const Home = () => {
         setQuery={setQuery}
       />
       {query?.trim() && searchedMovies.length === 0 ? (
-        <div class="movie_details">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="no_data_found">
+        <div className="movie_details">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="no_data_found">
                   <img src={NoData} alt="No Data Found" />
                   <h5>No data found</h5>
                   <p>

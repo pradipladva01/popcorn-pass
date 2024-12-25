@@ -7,6 +7,8 @@ import TermsAndCondition from "./pages/TermsAndCondition";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import DownloadOne from "./pages/DownloadOne";
 import DownloadTwo from "./pages/DownloadTwo";
+import AboutUs from "./pages/AboutUs";
+import DownloadThree from "./pages/DownloadThree";
 const Home = lazy(() => retry(() => import("./pages/Home")));
 const SearchResults = lazy(() => retry(() => import("./pages/SearchResults")));
 
@@ -25,6 +27,10 @@ const Routes = () => {
       element: <MovieDetails />,
     },
     {
+      path: "/about-us",
+      element: <AboutUs />,
+    },
+    {
       path: "/terms-condition",
       element: <TermsAndCondition />,
     },
@@ -39,6 +45,10 @@ const Routes = () => {
     {
       path: "/movie/:slug/:id/download-two",
       element: <DownloadTwo />,
+    },
+    {
+      path: "/movie/:slug/:id/download-three",
+      element: <DownloadThree />,
     },
     {
       path: "404",

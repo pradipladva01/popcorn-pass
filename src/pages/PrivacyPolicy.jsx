@@ -5,11 +5,11 @@ const PrivacyPolicy = () => {
   UsePageTitle("Privacy Policy | PopcornPass - Movie Central");
   return (
     <>
-      <section class="terms_section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="terms_content">
+      <section className="terms_section">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="terms_content">
                 <h1>Privacy Policy</h1>
                 <p>
                   Your privacy is important to us at PopcornPass. This Privacy

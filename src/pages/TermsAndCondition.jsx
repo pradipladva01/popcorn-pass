@@ -5,11 +5,11 @@ const TermsAndCondition = () => {
   UsePageTitle("Terms and Conditions | PopcornPass - Movie Central");
   return (
     <>
-      <section class="terms_section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="terms_content">
+      <section className="terms_section">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="terms_content">
                 <h1>Terms and Conditions</h1>
                 <p>
                   These terms of service ("Terms") govern your use of
