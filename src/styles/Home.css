@@ -1272,6 +1272,9 @@
   }
 }
 @media (max-width: 400px) {
+  .movie_card .movie_img {
+    height: 250px;
+  }
   .movie_details .movie_details_main .movie_inner_card .movie_screen_shorts .screen_shots_main .AsyncImage-root {
     height: 200px;
   }
