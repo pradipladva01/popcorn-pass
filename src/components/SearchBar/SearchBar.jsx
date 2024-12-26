@@ -6,6 +6,19 @@ import "./SearchBar.css";
 const SearchBar = ({ setSearchedMovies, setHeader, query, setQuery }) => {
   const fetchSearch = async (searchQuery) => {
     try {
+
+      const cachedResults = localStorage.getItem(`search-${searchQuery}`);
+      if (cachedResults) {
+        const data = JSON.parse(cachedResults);
+        setSearchedMovies(data.results || []);
+        setHeader(
+          data.results.length
+            ? `Results for "${searchQuery}"`
+            : `No results found for "${searchQuery}"`
+        );
+        return;
+      }
+
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/search/movie`,
         {
@@ -21,6 +34,8 @@ const SearchBar = ({ setSearchedMovies, setHeader, query, setQuery }) => {
       );
 
       const data = response.data;
+          localStorage.setItem(`search-${searchQuery}`, JSON.stringify(data));
+
       setSearchedMovies(data.results || []);
       setHeader(
         data.results.length

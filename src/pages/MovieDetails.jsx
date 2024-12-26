@@ -16,9 +16,9 @@ import UsePageTitle from "../components/UsePageTitle";
 import PlaceHolderImg from "../resources/images/img_placeholder.png";
 
 const MovieDetails = () => {
-    const [searchedMovies, setSearchedMovies] = useState([]);
-    const [header, setHeader] = useState("");
-    const [query, setQuery] = useState("");
+  const [searchedMovies, setSearchedMovies] = useState([]);
+  const [header, setHeader] = useState("");
+  const [query, setQuery] = useState("");
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,6 +31,14 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       setLoading(true);
+      const cachedDetails = localStorage.getItem(`movie-${id}`);
+      if (cachedDetails) {
+        const data = JSON.parse(cachedDetails);
+        setMovie(data);
+        setVideo(data.videos?.results || []);
+        setLoading(false);
+        return;
+      }
       try {
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/movie/${id}`,
@@ -41,6 +49,8 @@ const MovieDetails = () => {
             },
           }
         );
+        const data = response.data;
+        localStorage.setItem(`movie-${id}`, JSON.stringify(data));
         setMovie(response.data);
         setVideo(response.data.videos.results);
         setLoading(false);
@@ -60,6 +70,11 @@ const MovieDetails = () => {
 
   const fetchMovieImages = async (id) => {
     try {
+      const cachedImages = localStorage.getItem(`movie-images-${id}`);
+      if (cachedImages) {
+        setMovieImages(JSON.parse(cachedImages));
+        return;
+      }
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/movie/${id}/images`,
         {
@@ -69,6 +84,9 @@ const MovieDetails = () => {
         }
       );
 
+      const images = response.data.backdrops || [];
+
+      localStorage.setItem(`movie-images-${id}`, JSON.stringify(images));
       setMovieImages((prevImages) => ({
         ...prevImages,
         [id]: response.data.backdrops || [],
@@ -80,6 +98,11 @@ const MovieDetails = () => {
 
   const fetchVideo = async () => {
     try {
+      const cachedVideos = localStorage.getItem(`movie-videos-${id}`);
+      if (cachedVideos) {
+        setVideo(JSON.parse(cachedVideos));
+        return;
+      }
       const response = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}/videos`,
         {
@@ -89,6 +112,11 @@ const MovieDetails = () => {
           },
         }
       );
+      const videos = response.data.results;
+
+      // Save videos to localStorage
+      localStorage.setItem(`movie-videos-${id}`, JSON.stringify(videos));
+
       setVideo(response.data.results);
     } catch (error) {
       console.error("Error fetching video data:", error);
@@ -568,7 +596,12 @@ const MovieDetails = () => {
                                       <Link />
                                       Google Drive
                                     </button>
-                                    <button className="download_btn">
+                                    <button
+                                      className="download_btn"
+                                      onClick={() =>
+                                        handleGoogleDriveClick(download)
+                                      }
+                                    >
                                       <Download /> Download
                                     </button>
                                   </div>

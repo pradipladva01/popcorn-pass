@@ -27,13 +27,19 @@ const TrendingMovie = () => {
             },
           }
         );
+        const fetchedMovies = response.data.results || [];
+        localStorage.setItem("trendingMovie", JSON.stringify(fetchedMovies));
         setMovies(response.data.results || []);
       } catch (error) {
         console.error("Error fetching trending Hindi movies:", error);
       }
     };
-
-    fetchTrendingMovies();
+    const storedMovies = localStorage.getItem("trendingMovie");
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    } else {
+      fetchTrendingMovies();
+    }
   }, []);
 
   const handleMovieClick = (movie) => {

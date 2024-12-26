@@ -51,9 +51,10 @@ const Genre = () => {
             },
           }
         );
+        const fetchedMovies = response.data.results || [];
+        localStorage.setItem("moviesInGenre", JSON.stringify(fetchedMovies));
         setMovies(response.data.results);
         setTotalPages(response.data.total_pages);
-        // Dynamically calculate pages if needed
         if (response.data.total_pages) {
           updateVisiblePages(currentPage, response.data.total_pages);
         }
@@ -62,7 +63,12 @@ const Genre = () => {
       }
     };
 
-    fetchMovies();
+    const storedMovies = localStorage.getItem(`moviesInGenre-${activeTab}`);
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    } else {
+      fetchMovies();
+    }
   }, [activeTab, currentPage]);
 
   const updateVisiblePages = (page, total) => {

@@ -27,13 +27,20 @@ const NowPlayingMovie = () => {
             },
           }
         );
+        const fetchedMovies = response.data.results || [];
+        localStorage.setItem("nowPlayingMovie", JSON.stringify(fetchedMovies));
         setMovies(response.data.results || []);
       } catch (error) {
         console.error("Error fetching now playing movies:", error);
       }
     };
 
-    fetchNowPlayingMovies();
+    const storedMovies = localStorage.getItem("nowPlayingMovie");
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    } else {
+      fetchNowPlayingMovies();
+    }
   }, []);
 
   const handleMovieClick = (movie) => {

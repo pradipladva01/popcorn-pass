@@ -26,6 +26,8 @@ const HomeSlider = () => {
             },
           }
         );
+        const fetchedMovies = response.data.results || [];
+        localStorage.setItem("moviesInTheaters", JSON.stringify(fetchedMovies));
         setMovies(response.data.results || []);
       } catch (error) {
         console.error(
@@ -35,7 +37,12 @@ const HomeSlider = () => {
       }
     };
 
-    fetchMoviesInTheaters();
+    const storedMovies = localStorage.getItem("moviesInTheaters");
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    } else {
+      fetchMoviesInTheaters();
+    }
   }, []);
 
   return (

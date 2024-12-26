@@ -29,6 +29,18 @@ const SearchResults = ({ setQuery }) => {
       setLoading(true);
       setError(null);
 
+      const cachedResults = localStorage.getItem(`search-${query}`);
+      if (cachedResults) {
+        const results = JSON.parse(cachedResults);
+        if (results.length === 0) {
+          setError("No movies found for your search.");
+        } else {
+          setSearchedMovies(results);
+        }
+        setLoading(false);
+        return;
+      }
+
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/search/movie`,
@@ -43,10 +55,14 @@ const SearchResults = ({ setQuery }) => {
           }
         );
 
-        if (response.data.results.length === 0) {
+        const results = response.data.results;
+
+        if (results.length === 0) {
           setError("No movies found for your search.");
         } else {
-          setSearchedMovies(response.data.results);
+          setSearchedMovies(results);
+          // Cache the results in localStorage
+          localStorage.setItem(`search-${query}`, JSON.stringify(results));
         }
       } catch (err) {
         setError("Error fetching results. Please try again later.");
@@ -87,7 +103,6 @@ const SearchResults = ({ setQuery }) => {
       {error && <div className="error-message">{error}</div>}
       {header && <h2>Results for: {header}</h2>}
 
-      
       {searchedMovies.length > 0 ? (
         <section className="movie_list">
           <div className="container">
