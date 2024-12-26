@@ -38,8 +38,8 @@ const ContactUs = () => {
   const { submit: onSubmit } = useWeb3forms({
     access_key: apiKey,
     settings: {
-      from_name: "Pradip Ladva",
-      subject: "New Contact Message from your pradip ladva",
+      from_name: "PopcornPass",
+      subject: "New Contact Message from your PopcornPass",
     },
     onSuccess: (msg, data) => {
       setIsSuccess(true);
@@ -157,7 +157,7 @@ const ContactUs = () => {
                         type="email"
                         name="email"
                         id="email"
-                        placeholder="Email *"
+                        placeholder="Enter your email  "
                         className={`input-field ${
                           errors.email
                             ? "error-border"
@@ -187,7 +187,7 @@ const ContactUs = () => {
                         type="text"
                         name="message"
                         id="message"
-                        placeholder="Your Message *"
+                        placeholder="Write here..."
                         className={`input-field ${
                           errors.message
                             ? "error-border"
