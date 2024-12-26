@@ -70,10 +70,10 @@ const AboutUs = () => {
         </section>
       ) : (
         <section className="about_us_container">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div class="about_main">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="about_main">
                   <div className="intro_section">
                     <h1>Welcome to PopcornPass</h1>
                     <p>

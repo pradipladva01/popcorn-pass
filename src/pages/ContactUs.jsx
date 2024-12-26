@@ -103,15 +103,15 @@ const ContactUs = () => {
           </div>
         </section>
       ) : (
-        <section class="contact_section">
-          <div class="container">
-            <div class="row">
-              <div class="col-12">
-                <div class="contact_main">
+        <section className="contact_section">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="contact_main">
                   <h1>Contact Us</h1>
                   <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Explicabo, iure.
+                    We'd love to hear from you! If you have any questions or
+                    feedback, feel free to reach out to us.
                   </p>
 
                   <form
