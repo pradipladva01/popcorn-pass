@@ -61,24 +61,38 @@ const DownloadOne = () => {
     return () => clearInterval(timer);
   }, [movie, countdown]);
 
+  // const handleGenerateLinkClick = () => {
+  //   const newClickCount = clickCount + 1;
+  //   setClickCount(newClickCount);
+  //   localStorage.setItem("clickCount", newClickCount);
+
+  //   const isEvenClick = newClickCount % 2 === 0;
+
+  //   if (isEvenClick) {
+  //     window.open("https://pradipladva.in", "_blank", "noopener noreferrer");
+  //   } else {
+  //     if (movie && movie.title && movie.id) {
+  //       const slug = slugify(movie.title, { lower: true });
+  //       navigate(`/movie/${slug}/${movie.id}/download-two`, {
+  //         state: {
+  //           movie,
+  //         },
+  //       });
+  //     }
+  //   }
+  // };
   const handleGenerateLinkClick = () => {
     const newClickCount = clickCount + 1;
     setClickCount(newClickCount);
     localStorage.setItem("clickCount", newClickCount);
 
-    const isEvenClick = newClickCount % 2 === 0;
-
-    if (isEvenClick) {
-      window.open("https://pradipladva.in", "_blank", "noopener noreferrer");
-    } else {
-      if (movie && movie.title && movie.id) {
-        const slug = slugify(movie.title, { lower: true });
-        navigate(`/movie/${slug}/${movie.id}/download-two`, {
-          state: {
-            movie,
-          },
-        });
-      }
+    if (movie && movie.title && movie.id) {
+      const slug = slugify(movie.title, { lower: true });
+      navigate(`/movie/${slug}/${movie.id}/download-two`, {
+        state: {
+          movie,
+        },
+      });
     }
   };
 
