@@ -103,10 +103,9 @@ const TermsAndCondition = () => {
                 <h2>10. Contact Us</h2>
                 <p>
                   If you have questions about these Terms, please contact us at{" "}
-                  <a href="mailto:support@popcornpass.com">
-                    support@popcornpass.com
+                  <a href="mailto:popcornpass02@gmail.com">
+                    popcornpass02@gmail.com
                   </a>
-                  .
                 </p>
               </div>
             </div>

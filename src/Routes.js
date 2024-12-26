@@ -9,6 +9,7 @@ import DownloadOne from "./pages/DownloadOne";
 import DownloadTwo from "./pages/DownloadTwo";
 import AboutUs from "./pages/AboutUs";
 import DownloadThree from "./pages/DownloadThree";
+import ContactUs from "./pages/ContactUs";
 const Home = lazy(() => retry(() => import("./pages/Home")));
 const SearchResults = lazy(() => retry(() => import("./pages/SearchResults")));
 
@@ -29,6 +30,10 @@ const Routes = () => {
     {
       path: "/about-us",
       element: <AboutUs />,
+    },
+    {
+      path: "/contact-us",
+      element: <ContactUs />,
     },
     {
       path: "/terms-condition",

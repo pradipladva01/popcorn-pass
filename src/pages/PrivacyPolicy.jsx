@@ -115,10 +115,9 @@ const PrivacyPolicy = () => {
                 <p>
                   If you have any questions about this Privacy Policy, please
                   contact us at{" "}
-                  <a href="mailto:support@popcornpass.com">
-                    support@popcornpass.com
+                  <a href="mailto:popcornpass02@gmail.com">
+                    popcornpass02@gmail.co
                   </a>
-                  .
                 </p>
               </div>
             </div>
