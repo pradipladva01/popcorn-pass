@@ -1153,6 +1153,12 @@
     flex-direction: column;
     gap: 20px;
   }
+  .contact_section .contact_main {
+    padding: 30px;
+  }
+  .contact_section .contact_main form {
+    max-width: 100%;
+  }
 }
 @media (max-width: 480px) {
   .footer_section .footer_main ul {
@@ -1250,6 +1256,7 @@
   .download_one_main .download_one .dummy_box_main .dummy_box .dummy_box_left {
     max-width: 80%;
   }
+  .contact_section .contact_main h1,
   .terms_section .terms_content h1,
   .about_us_container .about_main .intro_section h1 {
     font-size: 24px;

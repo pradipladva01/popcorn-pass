@@ -82,20 +82,24 @@ const DownloadTwo = () => {
   //   }
   // };
 
-    const handleGenerateLinkClick = () => {
-      const newClickCount = clickCount + 1;
-      setClickCount(newClickCount);
-      localStorage.setItem("clickCount", newClickCount);
-  
-      if (movie && movie.title && movie.id) {
-        const slug = slugify(movie.title, { lower: true });
-        navigate(`/movie/${slug}/${movie.id}/download-three`, {
-          state: {
-            movie,
-          },
-        });
-      }
-    };
+  const handleGenerateLinkClick = () => {
+    const newClickCount = clickCount + 1;
+    setClickCount(newClickCount);
+    localStorage.setItem("clickCount", newClickCount);
+
+    // if (movie && movie.title && movie.id) {
+    //   const slug = slugify(movie.title, { lower: true });
+    //   navigate(`/movie/${slug}/${movie.id}/download-three`, {
+    //     state: {
+    //       movie,
+    //     },
+    //   });
+    // }
+    if (movie && movie.title && movie.id) {
+      const url = `https://t.me/netflix`;
+      window.open(url, "_blank");
+    }
+  };
 
   const handleShowNotRobotButton = () => {
     if (countdown === 0) {

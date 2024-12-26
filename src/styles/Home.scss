@@ -1407,6 +1407,14 @@
         flex-direction: column;
         gap: 20px;
     }
+
+    .contact_section .contact_main {
+        padding: 30px;
+    }
+
+    .contact_section .contact_main form {
+        max-width: 100%;
+    }
 }
 
 @media (max-width:480px) {
@@ -1532,6 +1540,7 @@
         max-width: 80%;
     }
 
+    .contact_section .contact_main h1,
     .terms_section .terms_content h1,
     .about_us_container .about_main .intro_section h1 {
         font-size: 24px;
