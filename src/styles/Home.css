@@ -1009,7 +1009,7 @@
   padding: 50px 0;
 }
 .contact_section .contact_main {
-  filter: drop-shadow(1px 1px 20px 4px rgba(151, 151, 151, 0.2));
+  box-shadow: 0px 0px 61px 15px rgba(255, 255, 255, 0.0235294118);
   border: 0.6px solid rgba(255, 255, 255, 0.2);
   padding: 50px;
   border-radius: 24px;
@@ -1027,7 +1027,7 @@
   text-align: center;
 }
 .contact_section .contact_main form {
-  max-width: 60%;
+  max-width: 100%;
   margin: auto;
 }
 .contact_section .contact_main form .input-group {

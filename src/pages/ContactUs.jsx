@@ -105,13 +105,15 @@ const ContactUs = () => {
       ) : (
         <section className="contact_section">
           <div className="container">
-            <div className="row">
-              <div className="col-12">
+            <div className="row justify-content-center">
+              <div className="col-lg-6">
                 <div className="contact_main">
                   <h1>Contact Us</h1>
                   <p>
-                    We'd love to hear from you! If you have any questions or
-                    feedback, feel free to reach out to us.
+                    We're happy to help! Whether you have inquiries about our
+                    services, need technical support, or want to share feedback,
+                    don’t hesitate to contact us. Our team is ready to provide
+                    the information you need.
                   </p>
 
                   <form
