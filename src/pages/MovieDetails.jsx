@@ -45,14 +45,14 @@ const MovieDetails = () => {
           {
             params: {
               api_key: process.env.REACT_APP_API_KEY,
-              append_to_response: "credits, images, videos",
+              append_to_response: "credits,images,videos",
             },
           }
         );
         const data = response.data;
         localStorage.setItem(`movie-${id}`, JSON.stringify(data));
-        setMovie(response.data);
-        setVideo(response.data.videos.results);
+        setMovie(data);
+        setVideo(data.videos?.results || []);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching movie details:", error);
