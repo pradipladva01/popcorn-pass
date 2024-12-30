@@ -116,7 +116,7 @@ const PrivacyPolicy = () => {
                   If you have any questions about this Privacy Policy, please
                   contact us at{" "}
                   <a href="mailto:popcornpass02@gmail.com">
-                    popcornpass02@gmail.co
+                    popcornpass02@gmail.com
                   </a>
                 </p>
               </div>

@@ -131,19 +131,18 @@ const MovieDetails = () => {
   }, [id]);
 
   const renderYoutubeVideos = () => {
-    const trailers = video.filter((v) => v.type === "Trailer");
-    if (trailers.length === 0) return <p>No videos available</p>;
+    if (video.length === 0) return <p>No videos available</p>;
 
-    return trailers.map((trailer) => (
-      <div key={trailer.id} style={{ margin: "10px 0" }}>
-        <h5>{trailer.name}</h5>
+    return video.map((videoItem) => (
+      <div key={videoItem.id} style={{ margin: "10px 0" }}>
+        <h5>{videoItem.name}</h5>
         <iframe
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/${trailer.key}`}
-          title={trailer.name}
+          src={`https://www.youtube.com/embed/${videoItem.key}?controls=0&modestbranding=1`}
+          title={videoItem.name}
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; picture-in-picture"
           allowFullScreen
         ></iframe>
       </div>
